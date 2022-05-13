@@ -70,12 +70,9 @@ for ind in df.index:
             lineWs = line[['Endpoint Name','Site','Last Active','OS Version']]
             dfWs = pd.concat([dfWs, lineWs], ignore_index=True)
 
-dfSvr.sort_values(by=['Last Active'])
-dfWs.sort_values(by=['Last Active'])
-
 with pd.ExcelWriter(filePath) as writer:
     dfThreats.to_excel(writer, sheet_name='Threats', index=None)
     dfFailed.to_excel(writer, sheet_name='Failed State', index=None)
     dfPending.to_excel(writer, sheet_name='Pending Actions', index=None)
-    dfSvr.to_excel(writer, sheet_name='Offline Servers', index=None)
-    dfWs.to_excel(writer, sheet_name='Offline Workstations', index=None)
+    dfSvr.sort_values(by=['Last Active']).to_excel(writer, sheet_name='Offline Servers', index=None)
+    dfWs.sort_values(by=['Last Active']).to_excel(writer, sheet_name='Offline Workstations', index=None)
