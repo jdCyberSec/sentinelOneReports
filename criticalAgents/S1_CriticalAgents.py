@@ -11,7 +11,7 @@ reportName = r'\S1_CriticalAgents_' + date
 filePath = exportDir + reportName + '.xlsx'
 #Blank dataframes to sort lines into for each excel sheet we want
 dfThreats = pd.DataFrame()
-dfFlailed = pd.DataFrame()
+dfFailed = pd.DataFrame()
 dfPending = pd.DataFrame()
 dfSvr = pd.DataFrame()
 dfWs = pd.DataFrame()
